@@ -1,0 +1,32 @@
+{
+    "format_version": 2,
+    "header": {
+      "description": "マイクラ人狼アドオン",
+      "name": "minecraft_erewolf_addon",
+      "uuid": "ad1af3ca-6cd7-4fbf-91e4-db79bb8b74a0",
+      "min_engine_version": [1,20,10],
+      "version": [1,0,0]
+    },
+    "modules": [
+      {
+        "type": "data",
+        "uuid": "73f02249-e706-4da8-86fb-3051faf55ea9",
+        "version": [1,0,0]
+      },
+      {
+        "type": "script",
+        "language": "javascript",
+        "uuid": "0b324335-65ee-4a48-bc35-449b96b5a97c",
+        "entry": "scripts/main.js",
+        "version": [1,0,0]
+    }
+    ],
+    "dependencies": [
+        {
+            "module_name": "@minecraft/server",
+            "version": "1.11.0-beta"
+        }
+    ]
+  }
+
+

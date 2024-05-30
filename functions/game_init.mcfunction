@@ -1,4 +1,3 @@
-#オオカミの遠吠え
 playsound mob.wolf.death @a ~ ~100 ~ 1 0.5 1
 #タイトルの表示時間設定
 title @a times 20 100 20
@@ -37,9 +36,10 @@ fill 212 4 -166 214 4 -166 air
 ##人狼・村人勝利の停止
 fill 212 4 -166 214 4 -166 air
 ##人狼勝利のリピーターを入れる
-setblock 212 4 -165 unpowered_repeater 2
+# setblock 212 4 -165 unpowered_repeater 2
+setblock 212 4 -165 unpowered_repeater ["minecraft:cardinal_direction"="north"]
 ##村人勝利のリピーターを入れる
-setblock 214 4 -165 unpowered_repeater 2
+setblock 214 4 -165 unpowered_repeater ["minecraft:cardinal_direction"="north"]
 ##人狼勝利の停止
 setblock 212 4 -159 air
 ##村人勝利の停止

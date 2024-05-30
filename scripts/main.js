@@ -11,7 +11,8 @@ world.afterEvents.itemUse.subscribe((ev) => {
     const { source: player, itemStack } = ev;
 
     // ゲーム実行用
-    if (itemStack.typeId === "minecraft:enchanted_book") {
+    if (itemStack.typeId === "minecraft:enchanted_book" && 'nameTag' in itemStack && itemStack.nameTag === "ゲームコンソール") {
+
         new Game().game_console(player, properties)
     }
 

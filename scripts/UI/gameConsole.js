@@ -1,5 +1,5 @@
 import { ActionFormData } from "@minecraft/server-ui";
-import { world } from "@minecraft/server";
+import { world, ItemStack } from "@minecraft/server";
 
 export class Game{
     game_console(player, properties) {
@@ -9,7 +9,7 @@ export class Game{
         for (var menu of menu_list){
             form.button(menu)
         }
-    
+
         form.show(player)
         .then(({selection, canceled}) => {
             if (canceled) return;

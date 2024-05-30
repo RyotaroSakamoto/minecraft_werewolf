@@ -22,13 +22,17 @@
     }
     ],
     "dependencies": [
-        {
-            "module_name": "@minecraft/server",
-            "version": "1.11.0-beta"
-        },
-        {
-          "module_name": "@minecraft/server-ui",
-          "version": "1.1.0"
+      {
+        "module_name": "@minecraft/server",
+        "version": "1.11.0-beta"
+      },
+      {
+        "module_name": "@minecraft/server-ui",
+        "version": "1.1.0"
+      },
+      {
+        "module_name": "@minecraft/vanilla-data",
+        "version": "1.20.80"
       }
     ],
     "capabilities": [

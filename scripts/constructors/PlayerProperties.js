@@ -9,8 +9,6 @@ export class PlayerProperties{
     constructor() {
         this.players = []
     }
-
-    
 }
 
 

@@ -1,8 +1,12 @@
 import { ActionFormData } from "@minecraft/server-ui";
-import { world } from "@minecraft/server";
+import { world, ItemStack } from "@minecraft/server";
 
-export class Game{
-    game_console(player, propertiesConsole) {
+import { PropertiesConsole } from "./PropertiesConsole"
+
+const propertiesConsole = new PropertiesConsole();
+
+export class GameConsole{
+    UIviewer(player) {
         const form = new ActionFormData()
             .title("ゲームコンソール")
         const menu_list = ["役職人数変更","ゲームスタート"]
@@ -16,7 +20,7 @@ export class Game{
             if (selection === 0){
                 propertiesConsole.propertyUIviewer(player)
                 .then(()=>{
-                    this.game_console(player, propertiesConsole)
+                    this.UIviewer(player, propertiesConsole)
                 })
             }else if (selection === 1){
 

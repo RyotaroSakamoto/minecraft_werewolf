@@ -20,11 +20,11 @@ export class PropertiesConsole {
 
             form.show(player).then(r => {
                 if(r.canceled){
-                    resolve();
+                    reject();
                     return
                 }
                 for(var value of r.formValues){
-                    if (isNaN(value)){
+                    if (isNaN(value) || value.includes("-")){
                         player.sendMessage("§c数値以外が入力されたよ");
                         reject();
                         return

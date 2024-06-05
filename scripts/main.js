@@ -1,15 +1,20 @@
-import { world, system, MinecraftDimensionTypes, ItemStack, ItemTypes } from "@minecraft/server";
+import { world, system, ItemStack, ItemTypes } from "@minecraft/server";
 import { ActionFormData, MessageFormData, ModalFormData } from "@minecraft/server-ui";
 
 import { PropertiesConsole } from "./UI/PropertiesConsole";
-import { Game } from "./UI/gameConsole";
+import { GameConsole } from "./UI/GameConsole";
 import { PlayerProperties } from "./constructors/PlayerProperties"
 import { TeleportConsole } from './UI/TeleportConsole';
+import { Commons } from "./commons"
 
 const dimension = world.getDimension('overworld');
 const players = world.getPlayers();
 const propertiesConsole = new PropertiesConsole();
 const teleportConsole = new TeleportConsole()
+const gameConsole = new GameConsole();
+
+const commons = new Commons();
+
 world.beforeEvents.chatSend.subscribe(ev => {
     const pref = "$";
     const sendPlayer = ev.sender;
@@ -17,16 +22,21 @@ world.beforeEvents.chatSend.subscribe(ev => {
         teleportConsole.teleportUIviewer(sendPlayer)
         ev.cancel = true
     }
-});
-
-world.afterEvents.chatSend.subscribe(ev => {
-    const pref = "$";
-    const sendPlayer = ev.sender;
 
     if(ev.message === `${pref}gameConsole`){
-        const itemStack = new ItemStack(ItemTypes.get("minecraft:enchanted_book"), 1);
-        itemStack.nameTag = "ゲームコンソール"
-        sendPlayer.getComponent("minecraft:inventory").container.addItem(itemStack);
+        system.runTimeout(() => {
+            const itemStack = new ItemStack(ItemTypes.get("minecraft:enchanted_book"), 1);
+            itemStack.nameTag = "ゲームコンソール"
+            sendPlayer.getComponent("minecraft:inventory").container.addItem(itemStack);
+        }, 1)
+        ev.cancel = true
+    }
+
+    if(ev.message === `${pref}tptest`){
+        system.runTimeout(() => {
+            commons.teleport(10,10,10,sendPlayer);
+        }, 1)
+        ev.cancel = true
     }
 });
 
@@ -35,12 +45,12 @@ world.afterEvents.itemUse.subscribe((ev) => {
 
     // ゲーム実行用
     if (itemStack.typeId === "minecraft:enchanted_book" && 'nameTag' in itemStack && itemStack.nameTag === "ゲームコンソール") {
-        new Game().game_console(player, propertiesConsole)
+        gameConsole.UIviewer(player)
     }
 
     // 占い
-    if (itemStack.typeId === "minecraft:compass") {
-        uranai(player)
+    if (itemStack.typeId === "minecraft:book" && 'nameTag' in itemStack && itemStack.nameTag === "探偵の書") {
+        player.sendMessage("たんていのしょ")
     }
 });
 

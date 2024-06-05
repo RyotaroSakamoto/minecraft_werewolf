@@ -50,5 +50,6 @@ scoreboard objectives remove team
 scoreboard objectives remove timer
 #すべての役職タグ削除
 function remove_all_tag
+#待機所扉
 setblock 233 2 -132 air
 setblock 234 2 -132 air

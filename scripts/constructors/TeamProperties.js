@@ -1,0 +1,1 @@
+import { PlayerProperties } from "./PlayerProperties";

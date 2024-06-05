@@ -1,19 +1,41 @@
-import { world, system, MinecraftDimensionTypes } from "@minecraft/server";
+import { world, system, MinecraftDimensionTypes, ItemStack, ItemTypes } from "@minecraft/server";
 import { ActionFormData, MessageFormData, ModalFormData } from "@minecraft/server-ui";
-import { Properties } from "./UI/Properties";
+
+import { PropertiesConsole } from "./UI/PropertiesConsole";
 import { Game } from "./UI/gameConsole";
+import { PlayerProperties } from "./constructors/PlayerProperties"
+import { TeleportConsole } from './UI/TeleportConsole';
 
 const dimension = world.getDimension('overworld');
 const players = world.getPlayers();
-const properties = new Properties();
+const propertiesConsole = new PropertiesConsole();
+const teleportConsole = new TeleportConsole()
+world.beforeEvents.chatSend.subscribe(ev => {
+    const pref = "$";
+    const sendPlayer = ev.sender;
+    if(ev.message === `${pref}tp`){
+        teleportConsole.teleportUIviewer(sendPlayer)
+        ev.cancel = true
+    }
+});
+
+world.afterEvents.chatSend.subscribe(ev => {
+    const pref = "$";
+    const sendPlayer = ev.sender;
+
+    if(ev.message === `${pref}gameConsole`){
+        const itemStack = new ItemStack(ItemTypes.get("minecraft:enchanted_book"), 1);
+        itemStack.nameTag = "ゲームコンソール"
+        sendPlayer.getComponent("minecraft:inventory").container.addItem(itemStack);
+    }
+});
 
 world.afterEvents.itemUse.subscribe((ev) => {
     const { source: player, itemStack } = ev;
 
     // ゲーム実行用
     if (itemStack.typeId === "minecraft:enchanted_book" && 'nameTag' in itemStack && itemStack.nameTag === "ゲームコンソール") {
-
-        new Game().game_console(player, properties)
+        new Game().game_console(player, propertiesConsole)
     }
 
     // 占い
@@ -22,6 +44,8 @@ world.afterEvents.itemUse.subscribe((ev) => {
     }
 });
 
+world.afterEvents.entityDie.subscribe((ev) => {
+})
 
 function uranai(player){
     const form = new ActionFormData()

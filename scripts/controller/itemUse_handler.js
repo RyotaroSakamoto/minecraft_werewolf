@@ -4,9 +4,11 @@ const gameConsole = new GameConsole();
 
 import { PropertiesConsole } from "../UI/properties_console"
 import { StartConsole } from "../UI//start_console";
+import { WorldConsole } from "../UI/world_console";
 
 const propertiesConsole = new PropertiesConsole();
 const startConsole = new StartConsole();
+const worldConsole = new WorldConsole();
 
 export function itemUse_handler(){
     world.afterEvents.itemUse.subscribe((ev) => {
@@ -14,7 +16,7 @@ export function itemUse_handler(){
     
         // ゲーム実行用
         if (itemStack.typeId === "minecraft:enchanted_book" && 'nameTag' in itemStack && itemStack.nameTag === "ゲームコンソール") {
-            gameConsole.UIViewer(player,propertiesConsole.UIViewer, startConsole.UIViewer)
+            gameConsole.UIViewer(player,propertiesConsole.UIViewer, worldConsole.UIViewer, startConsole.UIViewer)
         }
     
         // 占い

@@ -3,6 +3,8 @@ import { world } from "@minecraft/server";
 import { RolesProperties } from "./constructors/RollProperties"
 const rolesProperties = new RolesProperties()
 
+import { WorldProperties } from "./constructors/world_properties";
+const worldProperties = new WorldProperties();
 export class Commons{
     teleport(x,y,z,player){
         var command = `/tp ${player.name} ${x} ${y} ${z}`

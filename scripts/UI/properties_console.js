@@ -8,9 +8,9 @@ const players = world.getPlayers();
 
 export class PropertiesConsole {
 
-    UIViewer(player, gameUI=()=>{}){
+    UIViewer(player){
         const form = new ModalFormData()
-        .title("人狼")
+        .title("役職設定")
 
         const roles = commons.getRoles();
 

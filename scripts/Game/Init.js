@@ -3,13 +3,20 @@ import { world } from "@minecraft/server"
 import { Commons } from "../commons"
 const commons = new Commons();
 
+import { PlayerProperties } from "../constructors/PlayerProperties"
+const playerProperties = new PlayerProperties();
+
 export class Init{
     start(){
-        commons.allSendMessage("hage");
-
         //有効roleのリスト作成
         var roles = [];
-        //順番入れ替え
+
+        for(var index in commons.getRoles()){
+            var role = commons.getRoles()[index]
+            for(var i=0; i<role.num; i++){
+                roles.push(role)
+            }
+        }
         roles = roles.sort(() => Math.random() - 0.5);
 
         var players = [];
@@ -19,6 +26,7 @@ export class Init{
                 role: roles[index]
             })
         });
-        commons.setPlayers(players)
+        playerProperties.players = players;
+        commons.allSendMessage(JSON.stringify(players))
     }
 }

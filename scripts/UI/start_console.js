@@ -1,9 +1,9 @@
 import { ActionFormData } from "@minecraft/server-ui";
 import { Commons } from "../commons"
 import { Init } from "../Game/Init";
+import { world } from "@minecraft/server";
 
 const commons = new Commons();
-const init = new Init();
 
 export class StartConsole{
     UIViewer(player) {
@@ -24,7 +24,10 @@ export class StartConsole{
             if(canceled){
                 return
             }
+
+            player.sendMessage("GAME START");
             //ゲーム開始
+            const init = new Init();
             init.start();
         })
     }

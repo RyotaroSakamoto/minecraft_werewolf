@@ -1,58 +1,13 @@
-import { world, system, ItemStack, ItemTypes } from "@minecraft/server";
-import { ActionFormData, MessageFormData, ModalFormData } from "@minecraft/server-ui";
+import { world } from "@minecraft/server";
+import { ActionFormData } from "@minecraft/server-ui";
 
-import { PropertiesConsole } from "./UI/PropertiesConsole";
-import { GameConsole } from "./UI/GameConsole";
-import { PlayerProperties } from "./constructors/PlayerProperties"
-import { TeleportConsole } from './UI/TeleportConsole';
-import { Commons } from "./commons"
+import { chatSend_handler } from "./controller/chatSend_handler";
+import { itemUse_handler } from "./controller/itemUse_handler"
 
-const dimension = world.getDimension('overworld');
 const players = world.getPlayers();
-const propertiesConsole = new PropertiesConsole();
-const teleportConsole = new TeleportConsole()
-const gameConsole = new GameConsole();
 
-const commons = new Commons();
-
-world.beforeEvents.chatSend.subscribe(ev => {
-    const pref = "$";
-    const sendPlayer = ev.sender;
-    if(ev.message === `${pref}tp`){
-        teleportConsole.teleportUIviewer(sendPlayer)
-        ev.cancel = true
-    }
-
-    if(ev.message === `${pref}gameConsole`){
-        system.runTimeout(() => {
-            const itemStack = new ItemStack(ItemTypes.get("minecraft:enchanted_book"), 1);
-            itemStack.nameTag = "ゲームコンソール"
-            sendPlayer.getComponent("minecraft:inventory").container.addItem(itemStack);
-        }, 1)
-        ev.cancel = true
-    }
-
-    if(ev.message === `${pref}tptest`){
-        system.runTimeout(() => {
-            commons.teleport(10,10,10,sendPlayer);
-        }, 1)
-        ev.cancel = true
-    }
-});
-
-world.afterEvents.itemUse.subscribe((ev) => {
-    const { source: player, itemStack } = ev;
-
-    // ゲーム実行用
-    if (itemStack.typeId === "minecraft:enchanted_book" && 'nameTag' in itemStack && itemStack.nameTag === "ゲームコンソール") {
-        gameConsole.UIviewer(player)
-    }
-
-    // 占い
-    if (itemStack.typeId === "minecraft:book" && 'nameTag' in itemStack && itemStack.nameTag === "探偵の書") {
-        player.sendMessage("たんていのしょ")
-    }
-});
+chatSend_handler();
+itemUse_handler();
 
 world.afterEvents.entityDie.subscribe((ev) => {
 })

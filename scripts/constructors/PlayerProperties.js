@@ -5,12 +5,11 @@ import { ModalFormData } from "@minecraft/server-ui";
 
 
 export class PlayerProperties{
-
     constructor() {
         this.players = []
+        this.exclusionPlayerList = []
     }
 }
-
 
 class TeamProperties extends PlayerProperties{
 

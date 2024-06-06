@@ -1,0 +1,81 @@
+[Scripting][error]-Plugin [minecraft_erewolf_addon - 1.0.0] - [main.js] ran with error: [ReferenceError: Module [UI/GameConsole.js] not found. Native module error or file not found.]
+
+[Scripting][error]-Plugin [minecraft_erewolf_addon - 1.0.0] - [main.js] ran with error: [ReferenceError: Module [UI/GameConsole.js] not found. Native module error or file not found.]
+
+[Scripting][error]-Plugin [minecraft_erewolf_addon - 1.0.0] - [main.js] ran with error: [ReferenceError: Module [UI/GameConsole.js] not found. Native module error or file not found.]
+
+[Scripting][error]-Unhandled promise rejection: undefined
+
+[Scripting][error]-Unhandled promise rejection: undefined
+
+[Scripting][error]-Unhandled promise rejection: TypeError: Native variant type conversion failed.
+
+[Scripting][error]-Unhandled promise rejection: TypeError: Native variant type conversion failed.
+
+[Scripting][error]-Unhandled promise rejection: TypeError: Native variant type conversion failed.
+
+[Scripting][error]-Plugin [minecraft_erewolf_addon - 1.0.0] - [main.js] ran with error: [ReferenceError: Module [handler/UI/TeleportConsole.js] not found. Native module error or file not found.]
+
+[Scripting][error]-Unhandled promise rejection: TypeError: Native variant type conversion failed.
+
+[Scripting][error]-Unhandled promise rejection: TypeError: Native variant type conversion failed.
+
+[Scripting][error]-Plugin [minecraft_erewolf_addon - 1.0.0] - [main.js] ran with error: [SyntaxError: Could not find export 'itemUse_handler' in module 'controller/itemUse_handler.js']
+
+[Scripting][error]-ReferenceError: 'gameConsole' is not defined    at <anonymous> (controller/itemUse_handler.js:9)
+
+
+[Scripting][error]-ReferenceError: 'gameConsole' is not defined    at <anonymous> (controller/itemUse_handler.js:9)
+
+
+[Scripting][error]-Plugin [minecraft_erewolf_addon - 1.0.0] - [main.js] ran with error: [ReferenceError: Module [controller/UI/GameConsole.js] not found. Native module error or file not found.]
+
+[Scripting][error]-Plugin [minecraft_erewolf_addon - 1.0.0] - [main.js] ran with error: [ReferenceError: Module [controller/UI/GameConsole.js] not found. Native module error or file not found.]
+
+[Scripting][error]-Unhandled promise rejection: TypeError: Native variant type conversion failed.
+
+[Scripting][error]-Unhandled promise rejection: undefined
+
+[Scripting][error]-Plugin [minecraft_erewolf_addon - 1.0.0] - [main.js] ran with error: [TypeError: class constructors must be invoked with 'new'    at RolesProperties (constructors/RollProperties.js:2)
+    at <anonymous> (UI/start_console.js:4)
+]
+
+[Scripting][error]-Plugin [minecraft_erewolf_addon - 1.0.0] - [main.js] ran with error: [ReferenceError: Module [../constructors/RollProperties.js] not found. Native module error or file not found.]
+
+[Scripting][error]-Plugin [minecraft_erewolf_addon - 1.0.0] - [main.js] ran with error: [ReferenceError: Module [../constructors/RollProperties.js] not found. Native module error or file not found.]
+
+[Scripting][error]-Unhandled promise rejection: TypeError: not a function
+
+[Scripting][error]-Unhandled promise rejection: TypeError: not a function
+
+[Scripting][error]-Unhandled promise rejection: TypeError: not a function
+
+[Scripting][error]-Unhandled promise rejection: TypeError: not a function
+
+[Scripting][error]-Unhandled promise rejection: TypeError: not a function
+
+[Scripting][error]-Unhandled promise rejection: TypeError: not a function
+
+[Scripting][error]-Unhandled promise rejection: TypeError: not a function
+
+[Scripting][error]-Unhandled promise rejection: TypeError: not a function
+
+[Scripting][error]-Unhandled promise rejection: TypeError: not a function
+
+[Scripting][error]-ReferenceError: 'etv' is not defined    at <anonymous> (controller/chatSend_handler.js:6)
+
+
+[Scripting][error]-Unhandled promise rejection: TypeError: not a function
+
+[Scripting][error]-Unhandled promise rejection: TypeError: not a function
+
+[Scripting][error]-Unhandled promise rejection: TypeError: not a function
+
+[Scripting][error]-Plugin [minecraft_erewolf_addon - 1.0.0] - [main.js] ran with error: [ReferenceError: Module [controller/properties_console.js] not found. Native module error or file not found.]
+
+[Scripting][error]-Plugin [minecraft_erewolf_addon - 1.0.0] - [main.js] ran with error: [SyntaxError: unexpected token in expression: ')'    at Game/Init.js:13
+]
+
+[Scripting][error]-Plugin [minecraft_erewolf_addon - 1.0.0] - [main.js] ran with error: [SyntaxError: unexpected token in expression: ')'    at Game/Init.js:13
+]
+

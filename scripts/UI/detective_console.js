@@ -1,5 +1,4 @@
 import { ActionFormData } from "@minecraft/server-ui";
-import { world, ItemStack } from "@minecraft/server";
 
 export class DetectiveConsole{
     UIviewer(player) {
